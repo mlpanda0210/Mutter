@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitterdummy</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<header>
+    <ul>
+      <li><%= link_to "Twitter" ,mutters_path %></li>
+      <img src="<%= asset_path "twitter_logo.png" %>">
+    </ul>
+  </header>
+
+<body>
+  
+  
+
+<%= yield %>
+
+</body>
+</html>

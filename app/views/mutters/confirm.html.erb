@@ -1,0 +1,24 @@
+ <div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<h3>以下の内容でつぶやく</h3>
+
+<%= form_for(@mutter) do |f| %>
+
+<%= f.hidden_field :content %>
+
+<p><%= @mutter.content %></p>
+<%= f.submit "この内容でつぶやく",class:'btn btn-primary'%>
+<% end %>
+
+<%= form_for(@mutter,url: mutters_path, method:'get') do |f| %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "もどる", name: 'back', class:'btn btn-secondary' %>
+  
+  <% end %>
+  </div>
+</div>
+  
+  
+  
+  
+  

@@ -1,0 +1,52 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="normalize.css">
+</head>
+
+  <div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <p><%= notice%></p>
+
+
+<%= form_for(@mutter, url:choose_new_or_edit) do |f|%>
+
+<% if @mutter.errors.any? %>
+
+<div id="error_explanation">
+  <h2><%= @mutter.errors.count %>件のエラーがあります。</h2>
+  <ul>
+  <% @mutter.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+   <% end %>
+   </ul>
+</div>
+<% end %>
+
+<%= f.text_field :content,class: 'form-control',:placeholder =>"いま何してる？" %>
+  <br>
+  <%= f.submit "つぶやく",class: 'btn btn-primary' %>
+
+<% end %>
+
+<br>
+<h1>つぶやき一覧</h1>
+ <br>
+
+<% @mutters.each do |mutter| %>
+<div class="row">
+ <p><%= mutter.created_at %></p>
+<h2><p><%= mutter.content %></p></h2>
+<%= link_to "つぶやきを編集する", edit_mutter_path(mutter.id), 
+ class: 'btn btn-default btn-sm btn-info' %>
+<%= link_to 'つぶやきを削除する',mutter_path(mutter),method: :delete,
+data: {confirm:'本当に削除していいですか？'},class: 'btn btn-default btn-sm btn-secondary' %>
+</div>
+<% end %>
+ <br>
+ <br>
+
+</div>
+</div>
