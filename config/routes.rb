@@ -5,6 +5,7 @@ resources :mutters, only: [:index, :new, :create,:edit,:destroy,:update]do
   end
 end
 
+root 'mutters#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

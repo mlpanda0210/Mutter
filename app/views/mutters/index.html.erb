@@ -32,13 +32,13 @@
 <% end %>
 
 <br>
-<h1>つぶやき一覧</h1>
+<strong><h1>つぶやき一覧</h1></strong>
  <br>
 
 <% @mutters.each do |mutter| %>
 <div class="row">
- <p><%= mutter.created_at %></p>
-<h2><p><%= mutter.content %></p></h2>
+<p><%= mutter.created_at %></p>
+<strong><p><%= mutter.content %></p></strong>
 <%= link_to "つぶやきを編集する", edit_mutter_path(mutter.id), 
  class: 'btn btn-default btn-sm btn-info' %>
 <%= link_to 'つぶやきを削除する',mutter_path(mutter),method: :delete,
